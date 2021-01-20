@@ -1,2 +1,2 @@
-# blogPessoal
-Blog pessoal realizado junto ao bootcamp Generation Brasil
+# blogPessoal-api
+API para blog pessoal, consumo em Angular.
