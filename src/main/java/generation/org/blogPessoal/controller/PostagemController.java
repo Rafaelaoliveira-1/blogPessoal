@@ -58,6 +58,7 @@ public class PostagemController {
 		repositoty.deleteById(id);
 	}
 	
+	//teste
 	
 	
 }

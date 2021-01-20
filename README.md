@@ -1,2 +1,2 @@
-# blogPessoal
-API para blog pessoal realizado junto à Generation Brasil.
+# blogPessoal-api
+API para blog pessoal, consumo em Angular.
