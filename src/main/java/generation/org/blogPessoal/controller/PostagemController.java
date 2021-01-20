@@ -43,7 +43,22 @@ public class PostagemController {
 		return ResponseEntity.ok(repositoty.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	
-
+	@PostMapping
+	public ResponseEntity<Postagem> post (@RequestBody Postagem postagem){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repositoty.save(postagem));
+	}
 	 
-	 
+	@PutMapping
+	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem){
+		return ResponseEntity.status(HttpStatus.OK).body(repositoty.save(postagem));
+	}
+	  
+	@DeleteMapping("/{id}")
+	public void delete (@PathVariable long id) {
+		repositoty.deleteById(id);
+	}
+	
+	
+	
 }
+
