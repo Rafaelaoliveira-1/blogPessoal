@@ -1,7 +1,6 @@
 package generation.org.blogPessoal.seguranca;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,19 +11,20 @@ import generation.org.blogPessoal.model.Usuario;
 import generation.org.blogPessoal.repository.UsuarioRepository;
 
 @Service
-public class UserDatailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService{
 
 	//Inicio classe
 	
 	@Autowired
 	private UsuarioRepository userRepository;
 	
-	
+	//return user.map(UserDatailsImpl::new).get();			
 	@Override 
 	public UserDetails loadUserByUsername (String userName) throws UsernameNotFoundException{
 		Optional<Usuario> user =  userRepository.findByUsuario(userName);
 		user.orElseThrow(() -> new UsernameNotFoundException(userName + " not found."));
-		return user.map(UserDatailsImpl::new).get();			
+		return user.map(UserDetailsImpl::new).get();
+		
 	}
 	
 	
