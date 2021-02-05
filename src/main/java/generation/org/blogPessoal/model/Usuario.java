@@ -26,7 +26,7 @@ public class Usuario {
 	@Size (min = 5, max = 100)
 	private String usuario;
 	
-	@Size (min = 5, max = 100)
+	@Size (max = 100)
 	private String senha;
 
 	
@@ -65,6 +65,5 @@ public class Usuario {
 	}
 	
 	//Fim Getters and Setters
-	
 	
 }

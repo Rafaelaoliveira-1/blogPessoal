@@ -22,12 +22,12 @@ import generation.org.blogPessoal.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 public class UsuarioController {
-
+	
 	@Autowired
 	private UsuarioRepository repository;
-
+	
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -47,6 +47,7 @@ public class UsuarioController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
+
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
 		Optional<Usuario> user = usuarioService.CadastrarUsuario(usuario);
@@ -58,9 +59,10 @@ public class UsuarioController {
 		
 	}
 
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Usuario> Put(@RequestBody Usuario usuario) {
-		return ResponseEntity.ok(repository.save(usuario));
+		Optional<Usuario> user = usuarioService.atualizarUsuario(usuario);
+		return ResponseEntity.ok(user.get());
 	}
 
 }
